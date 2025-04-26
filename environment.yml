@@ -1,0 +1,23 @@
+# run: conda env create --file environment.yml
+name: mds-hallucination
+dependencies:
+- python>=3.12
+- anaconda
+- pip
+- numpy
+- pandas
+- scipy
+- matplotlib
+- seaborn
+- pydantic
+- openai
+- sciki-learn
+- tqdm
+- together
+- fireworks
+- tiktoken
+- jsonlines
+- hydra
+- omegaconf
+channels:
+- conda-forge

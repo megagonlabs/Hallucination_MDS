@@ -12,7 +12,7 @@ DATASET_DOMAIN="conv"
 # repeated predicted insights)
 TEMP_DIR=./outputs_$DATASET_DOMAIN/run_mitigation-$EVAL_TYPE/$EVAL_MODEL/results_some_shared/$PROMPT_TYPE/SummHay/filters
 
-for GROUP_SIZE in 2; do # 
+for GROUP_SIZE in 2 3 4 5 10; do # 
     for SUMMARIZER_MODEL in gpt-4o-2024-05-13 gemini-1.5-flash accounts/fireworks/models/llama-v3p1-70b-instruct accounts/fireworks/models/qwen2-72b-instruct gpt-3.5-turbo-0125; do # 
         BASENAME=$EVAL_MODEL/results_some_shared/$PROMPT_TYPE/SummHay__combinations-${GROUP_SIZE}/$SUMMARIZER_MODEL        
         # -------------------------------------------------
