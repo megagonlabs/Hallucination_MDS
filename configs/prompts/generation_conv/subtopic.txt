@@ -1,0 +1,13 @@
+You are given {{n_articles}} conversations about the following scenario: "{{topic}}".
+The conversations involve the following participants: {{participants}}. In each conversation, the participants might be different, with different names, but all the conversations fall into the same scenario.
+
+```
+{{articles}}
+```
+
+Your objective is to clearly and concisely summarize all insights in the document regarding the topic of "{{subtopic}}".
+If you don't find insights regarding the topic of "{{subtopic}}", write "No insights found".
+
+Careful:
+- [Format] You should format your summary as a bullet point list, where each bullet point is a different insight consisting of a single sentence. Represent each bullet point using "-". If you don't find related insights, write "No insights found" and nothing else.
+- [Length] Your summary should be concise and clear.

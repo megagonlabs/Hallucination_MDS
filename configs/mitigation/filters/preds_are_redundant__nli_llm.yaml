@@ -1,0 +1,11 @@
+preds_are_redundant_nli_llm:
+  _target_: mitigation_base.RedundantBulletsFilter
+  # CacheMixin arguments
+  cache_only: True
+
+  # LLM as a judge entailment arguments
+  classname: entailment.EntailmentGPT4oMini
+  config_path: configs/api_keys/openai.txt
+  prompt: "We are evaluating insights related to the topic '{subtopic}'\nHere are two listed insights:\nInsight 1: {text1}\nInsight 2: {text2}\nDoes Insight 1 semantically entail Insight 2? Respond with entailment, contradiction, or neutral."
+  generation_kwargs:
+    temperature: 0.02

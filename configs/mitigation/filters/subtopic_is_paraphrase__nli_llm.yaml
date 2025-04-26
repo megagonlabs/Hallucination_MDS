@@ -1,0 +1,14 @@
+subtopic_is_paraphrase_nli_llm:
+  _target_: mitigation_base.SubTopicNLIParaphraseFilter
+
+  strict_entailment: True
+  entailment_threshold: None
+
+  classname: entailment.EntailmentLLM
+  model_name: gpt-4o-mini-2024-07-18
+  config_path: configs/api_keys/openai_ucinlp.txt
+  prompt: "Given two sentences, your task is to classify the relationship between the sentence and the subtopic using one of the following labels:\n\n- Entailment: The sentence is essentially a paraphrase of the subtopic, possibly adding minimal information that is easily inferable or general knowledge.\n- Neutral: The sentence contains additional information that is not directly related to the core meaning of the subtopic but does not contradict it.\n- Contradiction: The sentence conflicts with the meaning of the subtopic.\n\nInsight1: \"{{text1}}\"\n\nInsight2: \"{{text2}}\"\n\nWhat is the relationship between the Insight1 and Insight2? Respond with entailment, contradiction, or neutral."
+  cache_only: False
+
+  generation_kwargs:
+    temperature: 0

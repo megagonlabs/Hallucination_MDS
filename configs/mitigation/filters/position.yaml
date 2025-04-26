@@ -1,0 +1,4 @@
+position:
+  _target_: mitigation_base.RankingTrimmingFilter
+  start: 0
+  end: 6

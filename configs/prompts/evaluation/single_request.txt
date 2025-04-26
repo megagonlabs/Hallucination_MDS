@@ -1,0 +1,84 @@
+You are given a list of bullet points (each with a unique number) and a set of reference insights. 
+Your objective is to determine whether each reference insight is covered in any of the bullet points.
+For every reference insight, you must further determine if the insight if the insight is partially covered ("PARTIAL_COVERAGE") or fully covered ("FULL_COVERAGE") by the bullet points.
+If the insight is not covered at all, you must return "NO_COVERAGE". See the example below:
+
+Example Reference Insights:
+{
+  "insights": [
+    {
+      "insight_id": 1,
+      "text": "The doctor asks the patient about their medical history"
+    },
+    {
+      "insight_id": 2,
+      "text": "The patient expresses concerns about potential side effects of medication"
+    },
+    {
+      "insight_id": 3,
+      "text": "The doctor and patient discuss symptoms and their progression"
+    },
+    {
+      "insight_id": 4,
+      "text": "The doctor adjusts the patient's vitamins dosage."
+    }
+  ]
+}
+
+Example Bullet Points:
+{
+  "bullets": [
+    {
+      "bullet_id": 1,
+      "text": "The patient often mentions that they are worried about medication side-effects."
+    },
+    {
+      "bullet_id": 2,
+      "text": "The doctor and patient catch up after a long time, with the patient mentioning feeling unwell for a while, and knowing of other family members' similar experiences."
+    },
+    {
+      "bullet_id": 3,
+      "text": "The doctor and patient spend time going over symptoms, particularly the initial symptoms and the progression in the last few months."
+    }
+  ]
+}
+
+
+Example Output:
+{
+  "results": [
+    {
+      "insight_id": 1,
+      "coverage": "PARTIAL_COVERAGE",
+      "bullet_id": 2
+    },
+    {
+      "insight_id": 2,
+      "coverage": "FULL_COVERAGE",
+      "bullet_id": 1
+    },
+    {
+      "insight_id": 3,
+      "coverage": "FULL_COVERAGE",
+      "bullet_id": 3
+    },
+    {
+      "insight_id": 4,
+      "coverage": "NO_COVERAGE",
+      "bullet_id": "NA"
+    }
+  ]
+}
+
+Now complete the task for the following insights and bullet points:
+
+Reference Insights:
+{{true_insights}}
+
+Bullet Points:
+{{pred_insights}}
+
+Requirements:
+- Evaluate each insight against the bullet points to determine coverage.
+- Annotate each sentence in the bullet points as "FULL_COVERAGE", "PARTIAL_COVERAGE", or "NO_COVERAGE".
+- Provide the JSON output in the format above, such that it can directly parsed by Python's json module. DO NOT OUTPUT ANY EXPLANATION OR ANYTHING THAT IS NOT THE JSON RESPONSE.

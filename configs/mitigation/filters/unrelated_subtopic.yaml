@@ -1,0 +1,15 @@
+unrelated_subtopic:
+  _target_: mitigation_base.UnrelatedSubtopicFilter
+  # CacheMixin arguments
+  cache_only: False
+
+  # LLM as a judge entailment arguments
+  classname: entailment.RelatedSubtopicLLM
+  model_name: gpt-4o-mini-2024-07-18
+  # confident_threshold: 0.9
+  confident_class: "yes"
+  config_path: configs/api_keys/openai.txt
+  # prompt: "You are given a sentence and a subtopic. Your task is to determine whether the sentence is relevant to the subtopic or not.\n\nSentence: \"{{insight}}\"\nSubtopic: \"{{subtopic}}\"\n\nIs the sentence relevant to the subtopic? Answer yes or no."
+  prompt: "Given a sentence and a subtopic related to \"{{topic}}\", your task is to determine if the sentence is relevant to the subtopic. A sentence is relevant to a subtopic if it aligns with or is semantically related to the subtopic. If the sentence is indirectly related to the subtopic, consider it relevant.\n\nSentence: \"{{insight}}\"\nSubtopic: \"{{subtopic}}\"\n\nIs the sentence relevant to the subtopic? Answer yes or no. Provide a brief explanation."
+  generation_kwargs:
+    temperature: 0

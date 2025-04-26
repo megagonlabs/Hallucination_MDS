@@ -1,0 +1,9 @@
+subtopic_is_paraphrase__nli_hf:
+  _target_: mitigation_base.SubTopicNLIParaphraseFilter
+  strict_entailment: True
+  # entailment_threshold: 0.5
+  # Huggingface entailment arguments
+  classname: entailment.EntailmentHF
+  cache_only: False
+  model_name: microsoft/deberta-v2-xlarge-mnli
+  device: cuda

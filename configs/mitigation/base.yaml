@@ -1,0 +1,16 @@
+filepaths:
+  temp: debug/filters
+  input: outputs_news/run_evals_postprocessing-multi-request/gpt-4o-mini-2024-07-18/results_some_shared/subtopic/SummHay__combinations-2/gemini-1.5-flash
+  output: debug/output_news
+  config: configs/api_keys/openai.txt
+
+# defaults:
+# https://hydra.cc/docs/tutorials/basic/your_first_app/defaults/
+
+# defaults:
+  # - filters:
+    # - position
+    # - not_shared
+    # - subtopic_is_paraphrase__nli_hf
+    # - subtopic_is_paraphrase__nli_llm
+  #   - unrelated_subtopic

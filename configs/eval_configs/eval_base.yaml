@@ -1,0 +1,15 @@
+topic: news1
+combinations: 2
+summarizer_model: gpt-3.5-turbo-0125
+
+dataset_type: results_some_shared
+prompt_type: subtopic
+
+n_samples: 300
+subsample: "0,50"
+
+setup:
+  seed: 182732
+  config_filepath: configs/api_keys/openai.txt
+  data_filepath: "outputs/generate_summaries/${dataset_type}/${prompt_type}/SummHay__combinations-${combinations}/${summarizer_model}"
+  output_filepath: "outputs/${hydra:job.name}/${requests.eval_kwargs.model}/${dataset_type}/${prompt_type}/SummHay__combinations-${combinations}/${summarizer_model}"
