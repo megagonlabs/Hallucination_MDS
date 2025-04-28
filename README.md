@@ -1,10 +1,8 @@
 # From Single to Multi: How LLMs Hallucinate in Multi-Document Summarization
 
-
-
 This repository contains the official implementation for the paper "[_From Single to Multi: How LLMs Hallucinate in Multi-Document Summarization_](https://arxiv.org/abs/2410.13961)" published at NAACL 2025 - Findings.
 
-
+![alt text](https://github.com/megagonlabs/Hallucination_MDS/blob/main/figs/overview_MDS.png)
 
 ## 1. Constructing the datasets
 
@@ -73,7 +71,7 @@ $ ./scripts/2.2_single_req_post_process_eval_summaries_batch.sh
 
 **Note**: We implement and validated two different approaches depending on how many annotations are provided in the output. We differentiate the two approaches into (1) single-request and (2) multi-request. The former consists of two OpenAI requests where each response contains the coverage annotation for all the insights; whereas the latter consists of |num_reference_insights| + |num_pred_insights| per example and the output only contains the coverage annotation for a single insight. See [single-request prompt](./configs/prompts/evaluation/single_request.txt) and [multi-request prompt](./configs/prompts/evaluation/multi_request.txt) to see examples. The second approach will be much more costly -- **USE WITH CAUTION**.
 
-### 4. Combine coverage labels
+## 4. Combine coverage labels
 
 Once we have collected all coverage labels for each reference insight and each predicted insight, we need to combine them to determine the final coverage label. This is done by running the `3_final_postprocessing.sh` scripts.
 
@@ -81,9 +79,24 @@ Once we have collected all coverage labels for each reference insight and each p
 $ ./scripts/3_final_postprocessing.sh
 ```
 
-### 5. Running mitigation
+## 5. Running mitigation
 
 To run the mitigation techniques, consider running the `4_mitigation_{domain}_llm.sh` or `4_mitigation_{domain}_nli.sh` scripts, depending on whether you'd like to run the LLM-based techniques or the NLI-based ones, respectively.
+
+# Data Source Attribution
+
+Our benchmarks build upon data derived from SummHay datasets:
+- Source: [SummHay Repository](https://github.com/salesforce/summary-of-a-haystack/tree/master)  
+- License: **[Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0)**
+
+**Please refer to the respective source for detailed licensing terms.**
+
+
+# Usage Guidelines
+
+- Use this dataset for **research and educational purposes**.  
+- Commercial use may require additional permissions depending on source licenses. 
+
 
 # Citing our work
 
@@ -98,3 +111,5 @@ If you found our work useful, please consider citing it:
 }
 ```
 
+# Disclosure
+Embedded in, or bundled with, this product are open source software (OSS) components, datasets and other third party components identified below. The license terms respectively governing the datasets and third-party components continue to govern those portions, and you agree to those license terms, which, when applicable, specifically limit any distribution. You may receive a copy of, distribute and/or modify any open source code for the OSS component under the terms of their respective licenses, which may be CC license and Apache 2.0 license. In the event of conflicts between Megagon Labs, Inc., license conditions and the Open Source Software license conditions, the Open Source Software conditions shall prevail with respect to the Open Source Software portions of the software. You agree not to, and are not permitted to, distribute actual datasets used with the OSS components listed below. You agree and are limited to distribute only links to datasets from known sources by listing them in the datasets overview table below. You are permitted to distribute derived datasets of data sets from known sources by including links to original dataset source in the datasets overview table below. You agree that any right to modify datasets originating from parties other than Megagon Labs, Inc. are governed by the respective third party’s license conditions. All OSS components and datasets are distributed WITHOUT ANY WARRANTY, without even implied warranty such as for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE, and without any liability to or claim against any Megagon Labs, Inc. entity other than as explicitly documented in this README document. You agree to cease using any part of the provided materials if you do not agree with the terms or the lack of any warranty herein. While Megagon Labs, Inc., makes commercially reasonable efforts to ensure that citations in this document are complete and accurate, errors may occur. If you see any error or omission, please help us improve this document by sending information to contact_oss@megagon.ai.
