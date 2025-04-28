@@ -1,0 +1,14 @@
+preds_are_redundant_sts_llm:
+  _target_: mitigation_base.RedundantBulletsFilter
+  # CacheMixin arguments
+  cache_only: False
+
+  # LLM as a judge entailment arguments
+  classname: entailment.ParaphraseLLM
+  model_name: gpt-4o-mini-2024-07-18
+  confident_class: "yes"
+  # threshold: 0.9
+  config_path: configs/api_keys/openai.txt
+  prompt: "Given two sentences related to \"{{subtopic}}\", your task it to determine if Sentence1 is a paraphrase of Sentence2. If the content of Sentence1 differs minimally from Sentence2 or vice-versa, consider them paraphrases.\n\nSentence1: \"{{text1}}\"\nSentence2: \"{{text2}}\"\n\nIs Sentence1 a paraphrase of Sentence2? Answer yes or no."
+  generation_kwargs:
+    temperature: 0

@@ -1,0 +1,12 @@
+You are given {{n_articles}} news articles about the main subject "{{topic}}".
+
+Your objective is to clearly and concisely summarize all insights regarding the topic of "{{subtopic}}".
+If you don't find insights regarding the topic of "{{subtopic}}", return "No insights found".
+
+Careful:
+- [Format] You should format your summary as a bullet point list, where each bullet point is a different insight consisting of a single sentence. Represent each bullet point using "-". If you don't find related insights, write "No insights found" and nothing else.
+- [Length] Your summary should be concise and clear.
+
+```
+{{articles}}
+```

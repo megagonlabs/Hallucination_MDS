@@ -1,0 +1,5 @@
+open_ai_batch_kwargs:
+  endpoint: /v1/chat/completions
+  completion_window: 24h
+
+blocking: True

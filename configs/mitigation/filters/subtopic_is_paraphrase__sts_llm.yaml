@@ -1,0 +1,12 @@
+subtopic_is_paraphrase__sts_llm:
+  _target_: mitigation_base.ParaphraseSTSSubtopicFilter
+  cache_only: False
+  # LLM as a judge entailment arguments
+  classname: entailment.RelatedSubtopicLLM
+  model_name: gpt-4o-mini-2024-07-18
+  # confident_threshold: 0.9
+  confident_class: "yes"
+  config_path: configs/api_keys/openai.txt
+  prompt: "Given two sentences related to \"{{topic}}\", your task it to determine if Sentence1 is a paraphrase of Sentence2. If Sentence1 is too generic or adds minimal information with respect to Sentence2, consider it a paraphrase.\n\nSentence1: \"{{insight}}\"\nSentence2: \"{{subtopic}}\"\n\nIs Sentence1 a paraphrase of Sentence2? Answer yes or no."
+  generation_kwargs:
+    temperature: 0

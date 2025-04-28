@@ -1,0 +1,17 @@
+topic: news1 # , news2, news3, news4, news5
+combinations: 2
+summarizer_model: gpt-3.5-turbo-0125
+eval_model: gpt-4o-mini-2024-07-18
+
+dataset_type: results_some_shared
+prompt_type: subtopic
+
+n_samples: 300
+subsample: "0,50"
+
+setup:
+  seed: 182732 
+  batch: False
+  config_filepath: configs/api_keys/openai.txt
+  evaluations_filepath: "outputs/run_evals/${eval_model}/${dataset_type}/${prompt_type}/SummHay__combinations-${combinations}/${summarizer_model}"
+  output_filepath: "outputs/${hydra:job.name}/${eval_model}/${dataset_type}/${prompt_type}/SummHay__combinations-${combinations}/${summarizer_model}"

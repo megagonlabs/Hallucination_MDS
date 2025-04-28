@@ -1,0 +1,12 @@
+not_shared:
+  _target_: mitigation_base.SharedOnlyFilter
+  shared_by_or_more: 2
+  substr_len: 50
+
+  # CacheMixin arguments
+  classname: contamination_base.SubstringMatch
+  cache_only: false
+  use_lowercase: true
+  remove_stopwords: false
+  remove_punctuation: true
+  seed: 89127

@@ -1,0 +1,12 @@
+_target_: evaluators.MultiRequestEvaluator ## hydra.instantiate class
+bidirectional: True
+_num_examples: null
+
+eval_kwargs:
+  model: gpt-4o-mini-2024-07-18
+  n: 1
+  temperature: 0
+  top_p: 1
+  response_format: { "type": "json_object" }
+
+prompt_filepath: configs/prompts/evaluation/multi_requests.txt

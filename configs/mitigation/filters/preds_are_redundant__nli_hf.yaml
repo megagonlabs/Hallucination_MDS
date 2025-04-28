@@ -1,0 +1,9 @@
+preds_are_redundant__nli_hf:
+  _target_: mitigation_base.RedundantBulletsFilter
+  # CacheMixin arguments
+  cache_only: False
+
+  # Huggingface entailment arguments
+  classname: entailment.EntailmentHF
+  model_name: microsoft/deberta-v2-xlarge-mnli
+  device: cuda
